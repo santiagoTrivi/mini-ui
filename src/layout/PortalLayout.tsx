@@ -13,6 +13,8 @@ export default function PortalLayout({ children }: PortalLayoutProps) {
     e.preventDefault();
 
     try {
+      auth.signout();
+      /*
       const response = await fetch(`${API_URL}/signout`, {
         method: "DELETE",
         headers: {
@@ -23,6 +25,7 @@ export default function PortalLayout({ children }: PortalLayoutProps) {
       if (response.ok) {
         auth.signout();
       }
+        */
     } catch (error) {
       console.log(error);
     }

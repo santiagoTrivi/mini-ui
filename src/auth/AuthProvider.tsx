@@ -143,7 +143,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
 async function retrieveUserInfo(accessToken: string) {
   try {
-    const response = await fetch(`${API_URL}/user`, {
+    const response = await fetch(`${API_URL}/auth/me`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

@@ -18,41 +18,102 @@ label {
   margin: 0 auto;
 }
 
+/* --- Input Fields (Text and Password) --- */
 input[type="text"],
-[type="password"] {
+input[type="password"] {
   display: block;
-  padding: 10px;
-  box-sizing: border-box;
   width: 100%;
-  margin: 5px 0 10px 0;
+  padding: 10px;
+  margin-bottom: 10px; /* Consistent spacing below inputs */
+  margin-top: 5px; /* Consistent spacing above inputs */
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
+  border: 1px solid #ccc; /* Adds a subtle border */
+  border-radius: 4px; /* Slightly rounded corners for a modern look */
+  font-size: 16px; /* Ensures text is readable on most devices */
+  line-height: 1.5; /* Improves readability of text inside input */
 }
 
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff; /* Highlight border on focus */
+  outline: none; /* Remove default outline for better control */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Subtle glow on focus */
+}
+
+/* --- Buttons --- */
 input[type="button"],
 button {
-  background-color: rgb(39, 131, 212);
-  padding: 10px;
-  border: 0;
-  min-width: 100px;
+  background-color: #007bff; /* Use a common blue for consistency */
+  color: #fff; /* White text for contrast */
+  padding: 10px 15px; /* Slightly more horizontal padding for better aesthetics */
+  border: none; /* '0' is fine, but 'none' is more explicit */
   border-radius: 5px;
-  color: white;
+  min-width: 100px;
+  cursor: pointer; /* Indicates it's clickable */
+  font-size: 16px;
+  line-height: 1.5;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for hover effects */
 }
 
+input[type="button"]:hover,
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
+
+input[type="button"]:active,
+button:active {
+  background-color: #004085; /* Even darker blue when clicked */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); /* Inset shadow to give a pressed look */
+}
+
+input[type="button"]:disabled,
+button:disabled {
+  background-color: #cccccc; /* Grey out disabled buttons */
+  cursor: not-allowed; /* Show 'not-allowed' cursor */
+  opacity: 0.7; /* Slightly fade disabled buttons */
+}
+
+/* --- Navigation Bar --- */
 nav {
-  background-color: #eee;
+  background-color: #f8f8f8; /* Softer, lighter background */
+  padding: 10px 0; /* Add some vertical padding to the nav container */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 nav ul {
   margin: 0;
+  padding: 0 20px; /* Add horizontal padding to the ul for spacing from edges */
+  list-style: none; /* Remove default bullet points */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; /* Vertically align items in the middle */
 }
 
 nav ul li {
-  display: inline-block;
-  padding: 10px;
+  /* No need for display: inline-block if using flex on the parent ul */
+  padding: 10px 0; /* Adjust padding to apply only vertically if needed */
+  margin-left: 20px; /* Use margin-left to space items, better for flex-end */
+  /* Remove margin-right: 20px; as it adds extra space after the last item */
 }
 
-a {
-  color: rgb(97, 28, 161);
+/* --- Navigation Links --- */
+nav ul li a {
+  color: #007bff; /* Use a common, vibrant blue for links */
   text-decoration: none;
+  font-weight: 500; /* Slightly bolder text for better readability */
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  color: #0056b3; /* Darker blue on hover/focus */
+  text-decoration: underline; /* Underline on hover for clear feedback */
+  text-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* Subtle glow on hover */
+}
+
+nav ul li a:active {
+  color: #004085; /* Even darker blue when clicked */
 }
 
 .dashboard {
@@ -61,7 +122,37 @@ a {
 }
 
 .errorMessage {
-  background-color: #f2dede;
-  color: #a94442;
-  padding: 10px;
+  background-color: #f8d7da; /* Lighter, more modern red background */
+  color: #721c24; /* Darker, more readable red text */
+  padding: 12px 20px; /* Slightly more padding for better spacing */
+  border: 1px solid #f5c6cb; /* Subtle red border */
+  border-radius: 6px; /* Gently rounded corners */
+  margin-bottom: 15px; /* Adds space below the error message */
+  font-size: 1rem; /* Ensures readability, often 16px */
+  line-height: 1.5; /* Improves text readability */
+  text-align: center; /* Centers the text for a common error message style */
+  font-weight: 500; /* Slightly bolder text for emphasis */
+  animation: fadeIn 0.5s ease-out; /* Smooth fade-in animation */
+}
+
+/* Optional: Add an icon or close button if desired in HTML/JS */
+/* For example, if you have a close button inside .errorMessage */
+/*
+.errorMessage .closeButton {
+  float: right;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 10px;
+}
+*/
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
